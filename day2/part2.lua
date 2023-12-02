@@ -1,6 +1,6 @@
 local input = require("day2/input").input
 
-function getGamePower(game: string)
+function getGamePower(game: string): number
 	local _, gameEnd = game:find("Game (.*):")
 	game = game:sub(gameEnd + 2) -- not sure why I couldn't just put spaces in the game pattern
 
