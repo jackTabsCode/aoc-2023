@@ -8,27 +8,18 @@ local check = {
 
 function checkGame(game: string): { id: number, possible: boolean }
 	local gameId = tonumber(game:match("Game (.*):"))
-	local _, gameEnd = game:find("Game (.*):")
-	game = game:sub(gameEnd + 2) -- not sure why I couldn't just put spaces in the game pattern
+	local _, game = game:match("Game (.*):(.*)")
 
-	local highestCounts = {}
+	local possible = true
 
 	for _, round in pairs(game:split("; ")) do
 		for _, pick in pairs(round:split(", ")) do
 			local color = pick:match("%a+")
 			local number = tonumber(pick:match("%d+"))
 
-			local found = highestCounts[color]
-			if not found or number > found then
-				highestCounts[color] = number
+			if number > check[color] then
+				possible = false
 			end
-		end
-	end
-
-	local possible = true
-	for color, number in pairs(highestCounts) do
-		if number > check[color] then
-			possible = false
 		end
 	end
 
