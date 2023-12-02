@@ -21,7 +21,7 @@ local charDigits = {
 	["9"] = 9,
 }
 
-function recoverCalibrationValue(str: string)
+function recoverCalibrationValue(str: string): number
 	local digits = {}
 
 	for word, number in pairs(charDigits) do
@@ -41,7 +41,7 @@ function recoverCalibrationValue(str: string)
 		return a.position < b.position
 	end)
 
-	return tonumber(digits[1].number .. digits[#digits].number)
+	return tonumber(digits[1].number .. digits[#digits].number) :: number
 end
 
 local values = input:split("\n")

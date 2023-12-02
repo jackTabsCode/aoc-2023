@@ -1,8 +1,8 @@
 local input = require("day1/input").input
 
-function recoverCalibrationValue(str: string)
+function recoverCalibrationValue(str: string): number
 	local digits = str:gsub("%a", ""):split("")
-	return tonumber(digits[1] .. digits[#digits])
+	return tonumber(digits[1] .. digits[#digits]) :: number
 end
 
 local values = input:split("\n")
