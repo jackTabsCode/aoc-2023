@@ -25,8 +25,6 @@ function card(line: string) -- this took so long to run that I was working on a 
 	local cardNumber, winningNumbersText, myNumbersText = line:match("Card (.*): (.*) | (.*)")
 	local winningNumbers, myNumbers = splitIntoNumbers(winningNumbersText), splitIntoNumbers(myNumbersText)
 
-	print(`doing {cardNumber}`)
-
 	local points = 0
 
 	for _, number in winningNumbers do
