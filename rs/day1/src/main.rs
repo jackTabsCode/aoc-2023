@@ -22,9 +22,9 @@ fn part1() {
         }
     }
 
-    println!("Day 1 answer: {}", answer);
+    println!("Part 1 answer: {}", answer);
 }
 
 fn main() {
-    part1()
+    part1();
 }
